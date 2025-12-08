@@ -1,80 +1,87 @@
 "use client";
+import React, { useState } from "react";
 
-import { useState } from "react";
+const Page = () => {
+  // Category State
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+ 
 
-  const handleSignIn = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+  
+
+  // Handle button click
+  const handleSubmit = () => {
+    alert("Hi Vijay, how are you?");
   };
 
   return (
-    <div className="h-auto flex items-center justify-center bg-gray-100 px-4">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-lg p-8">
-        
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Sign In
-        </h2>
-
-        <form onSubmit={handleSignIn} className="space-y-5">
-          
-          {/* Email Field */}
-          <div>
-            <label className="text-gray-600 text-sm mb-1 block">
-              Email Address
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        
-              placeholder="you@example.com"
-              required
-            />
-          </div>
-
-          {/* Password Field */}
-          <div>
-            <label className="text-gray-600 text-sm mb-1 block">
-              Password
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2  focus:ring-blue-500"
-                        
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-
-          {/* Submit Button */}
+    <div className="p-6">
+      {/* Category Buttons */}
+      <div className="flex flex-wrap gap-4 items-center justify-between">
+        <div className="flex gap-2">
           <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg  hover:bg-blue-700 transition font-semibold"
-                      
+            onClick={() => setSelectedCategory("ALL")}
+            className={`px-4 py-2 rounded-lg ${
+              selectedCategory === "ALL"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100"
+            }`}
           >
-            Sign In
+           ALL
           </button>
-        </form>
 
-        {/* Extra Links */}
-        <p className="text-center text-sm text-gray-600 mt-4">
-          Dont have an account?{" "}
-          <a
-            href="/signup"
-            className="text-blue-600 hover:underline font-medium"
+
+
+
+          <button
+            onClick={() => setSelectedCategory("ELECTRONICS")}
+            className={`px-4 py-2 rounded-lg ${
+              selectedCategory === "ELECTRONICS"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100"
+            }`}
           >
-            Sign Up
-          </a>
-        </p>
+           ELECTRONICS
+          </button>
+
+          <button
+            onClick={() => setSelectedCategory("FASHION")}
+            className={`px-4 py-2 rounded-lg ${
+              selectedCategory === "FASHION"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100"
+            }`}
+          >
+          FASHION
+          </button>
+
+          <button
+            onClick={() => setSelectedCategory("HOME")}
+            className={`px-4 py-2 rounded-lg ${
+              selectedCategory === "HOME"
+                ? "bg-blue-600 text-white"
+                : "bg-gray-100"
+            }`}
+          >
+          HOME
+          </button>
+        </div>
+      </div>
+
+      {/* Text + Button Section */}
+      <div className="mt-6">
+        <h1 className="text-2xl font-bold">HELLO VIJAY</h1>
+        <p className="text-gray-600">Welcome to our channel</p>
+
+        <button
+          onClick={handleSubmit}
+          className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+        >
+          Click me
+        </button>
       </div>
     </div>
   );
-}
+};
+
+export default Page;
