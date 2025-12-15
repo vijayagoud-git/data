@@ -1,6 +1,6 @@
 import SignIn from "@/Components/Signin/page";
 import Design from "@/Design/page"
-import Patterns from "@/Patterns/page"
+
 
 
 export default function Home() {
@@ -8,7 +8,6 @@ export default function Home() {
     <div>
       <SignIn/>
       <Design/>
-      <Patterns/>
      
    
       

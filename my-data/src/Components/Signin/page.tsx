@@ -4,13 +4,14 @@ import React, { useState } from "react";
 export default function AmazonFeesPage() {
   const [open, setOpen] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  
 
   return (
     <div className="w-full bg-[#f7f4f1]">
   
       <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
         <div className="flex items-center gap-2 text-xl font-bold">
-          <span className="text-black">amazon</span>
+          <span className="text-black">Orderbro</span>
           <span className="text-xs -ml-1">.in</span>
         </div>
 
@@ -30,17 +31,7 @@ export default function AmazonFeesPage() {
   </div>
 
 
-  <div className="group relative cursor-pointer">
-    <button className="py-2">Grow ▾</button>
-
-    <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-40">
-      <ul className="py-2 text-sm text-gray-700">
-        <li className="px-4 py-2 hover:bg-gray-100">Increase Sales</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Ad Tools</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Fulfillment Options</li>
-      </ul>
-    </div>
-  </div>
+  
 
 
   <div className="group relative cursor-pointer">
@@ -157,6 +148,7 @@ export default function AmazonFeesPage() {
             <span>Know more</span>
             <span>→</span>
           </div>
+          
 
           <button className="px-8 py-3 bg-orange-600 text-white rounded-full text-lg font-semibold">
             Start Selling
@@ -170,7 +162,24 @@ export default function AmazonFeesPage() {
         <div className="flex justify-center md:justify-end">
           <div className="relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-<img src="/img1.svg" alt="demo" />
+<img
+  src="/img1.svg"
+  alt="demo"
+  style={{
+    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+    transition: "0.3s",
+    borderRadius: "10px",
+  }}
+
+  onMouseEnter={(e) => {
+    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.3)";
+    e.currentTarget.style.transform = "scale(1.05)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.2)";
+    e.currentTarget.style.transform = "scale(1)";
+  }}
+/>
 
             <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
               Effective September 01, 2026
