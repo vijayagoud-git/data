@@ -1,191 +1,159 @@
 "use client"
 import React, { useState } from "react";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaClock,
+  FaEye,
+  FaBars,
+  FaCalendarAlt,
+} from "react-icons/fa";
 
-export default function AmazonFeesPage() {
-  const [open, setOpen] = useState(false);
-  const [showHelp, setShowHelp] = useState(false);
+export default function App() {
+   const [activeTab, setActiveTab] = useState<"home" | "services" | null>(null);
+
   
+  const healthCareServices = [
+    "General Checkup",
+    "Eye Examination",
+    "Pediatric Care",
+    "Emergency Services",
+    "Vision Therapy",
+  ];
+
+  const hospitalNames = [
+    "Viswam Eye Hospital",
+    "City Care Hospital",
+    "Sunshine Health Center",
+    "Green Valley Clinic",
+    "Hope Medical Institute",
+  ];
 
   return (
-    <div className="w-full bg-[#f7f4f1]">
-  
-      <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
-        <div className="flex items-center gap-2 text-xl font-bold">
-          <span className="text-black">Orderbro</span>
-          <span className="text-xs -ml-1">.in</span>
-        </div>
-
-      <div className="hidden md:flex gap-8 text-gray-800 font-bold relative">
-  {/* START */}
-  <div className="group relative cursor-pointer">
-    <button className="py-2">Start ▾</button>
-
- 
-    <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-40">
-      <ul className="py-2 text-sm text-gray-700">
-        <li className="px-4 py-2 hover:bg-gray-100">Become a Seller</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Registration Steps</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Account Setup</li>
-      </ul>
-    </div>
-  </div>
-
-
-  
-
-
-  <div className="group relative cursor-pointer">
-    <button className="py-2">Pricing ▾</button>
-
-    <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-40">
-      <ul className="py-2 text-sm text-gray-700">
-        <li className="px-4 py-2 hover:bg-gray-100">Fees</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Plans</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Taxes</li>
-      </ul>
-    </div>
-  </div>
-
- 
-  <div className="group relative cursor-pointer">
-    <button className="py-2">Resources ▾</button>
-
-    <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded-md w-40">
-      <ul className="py-2 text-sm text-gray-700">
-        <li className="px-4 py-2 hover:bg-gray-100">Help Center</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Support</li>
-        <li className="px-4 py-2 hover:bg-gray-100">Tutorials</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
- <div className="flex justify-center mt-10">
-     
-      <button
-        className="px-5 py-2 bg-orange-600 text-white rounded-full font-semibold"
-        onClick={() => setOpen(true)}
-      >
-        Start Selling
-      </button>
-
-      {open && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl w-96 shadow-xl relative">
-
-            <button
-              className="absolute top-3 right-3 text-gray-500"
-              onClick={() => setOpen(false)}
-            >
-              ✕
-            </button>
-
-        
-            <h2 className="text-xl font-bold mb-4">
-              Create your personal account
-            </h2>
-
-            <label className="block mb-2 font-semibold">Mobile Number</label>
-            <input
-              type="text"
-              className="w-full px-3 py-2 border rounded-lg mb-4"
-              placeholder="Enter mobile number"
-            />
-
-            <label className="block mb-2 font-semibold">Email</label>
-            <input
-              type="email"
-              className="w-full px-3 py-2 border rounded-lg mb-4"
-              placeholder="Enter email"
-            />
-
-            <button className="w-full bg-orange-600 text-white py-2 rounded-full font-semibold mt-2">
-              Continue
-            </button>
-
-         
-            <div className="mt-4">
-              <button
-                className="text-blue-600 underline"
-                onClick={() => setShowHelp(!showHelp)}
-              >
-                Need help?
-              </button>
-             
-        <input type="checkbox" name="Create your account" id="Account" />
-      
-      
-
-              {showHelp && (
-                <div className="mt-2 p-3 border rounded-lg bg-gray-50">
-                  <p className="text-sm">• Contact support</p>
-                  <p className="text-sm">• Forgot account?</p>
-                  <p className="text-sm">• Troubleshoot login</p>
-                </div>
-              )}
-            </div>
+    <div className="min-h-screen bg-white font-sans">
+      {/* Top Blue Info Bar */}
+      <div className="bg-blue-900 text-white text-sm flex justify-between px-6 py-1 select-none">
+        <div className="flex gap-6 items-center">
+          <div className="flex items-center gap-1">
+            <FaPhoneAlt /> +91 98765 43210
+          </div>
+          <div className="flex items-center gap-1">
+            <FaEnvelope /> info@viswameye.com
           </div>
         </div>
-      )}
-    </div>
+        <div className="flex items-center gap-1">
+          <FaClock /> Mon-Sat: 9AM-8PM | Sun: 9AM-2PM
+        </div>
+      </div>
 
-       
+     
+      <header className="flex justify-between items-center px-6 py-4 border-b border-gray-200 bg-white max-w-7xl mx-auto">
+        <div className="flex items-center gap-4">
+          <FaEye className="text-blue-600 text-3xl" />
+          <div>
+            <h1 className="text-xl font-bold text-blue-800">
+              Viswam Eye Hospital
+            </h1>
+            <p className="text-sm text-gray-500">
+              Vision Care Excellence Since 1995
+            </p>
+          </div>
+        </div>
+        <button
+          aria-label="menu"
+          className="text-gray-600 text-2xl focus:outline-none"
+        >
+          <FaBars />
+        </button>
+      </header>
+
+      <nav className="bg-gray-50 text-gray-600 text-sm px-6 py-2 max-w-7xl mx-auto flex items-center gap-1">
+        <span>Home</span>
+        <span className="text-blue-600"> &gt; </span>
+        <a href="#" className="text-blue-600 hover:underline">
+          Services
+        </a>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 grid grid-cols-1 md:grid-cols-2 gap-10">
-   
-        <div>
-          <h2 className="text-gray-500 text-sm mb-3">
-            Amazon Seller &gt; Fees and Pricing
-          </h2>
+      <section className="bg-blue-100 rounded-xl max-w-7xl mx-auto px-10 py-12 mt-8">
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-2 max-w-3xl">
+          Clear Vision, <span className="text-blue-600">Bright Future</span>
+        </h1>
+        <p className="text-gray-700 mb-8 max-w-2xl">
+          Experience world-class eye care with advanced technology and
+          compassionate experts at Viswam Eye Hospital.
+        </p>
 
-          <h1 className="text-4xl font-extrabold text-gray-900 leading-tight mb-6">
-            Fees and Pricing for <br /> Amazon.in sellers
-          </h1>
-
-          <div className="flex items-center gap-2 text-orange-700 font-semibold cursor-pointer mb-4">
-            <span>Know more</span>
-            <span>→</span>
-          </div>
-          
-
-          <button className="px-8 py-3 bg-orange-600 text-white rounded-full text-lg font-semibold">
-            Start Selling
+        <div className="flex gap-6">
+          <button className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
+            <FaCalendarAlt />
+            Book Appointment
           </button>
-
-          <p className="mt-4 underline text-sm text-gray-600 cursor-pointer">
-            Disclaimer
-          </p>
+          <button className="px-6 py-3 rounded-full font-semibold border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition">
+            Learn More
+          </button>
         </div>
+      </section>
 
-        <div className="flex justify-center md:justify-end">
-          <div className="relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-<img
-  src="/img1.svg"
-  alt="demo"
-  style={{
-    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-    transition: "0.3s",
-    borderRadius: "10px",
-  }}
+  
+      <section className="max-w-7xl mx-auto mt-10 px-6 flex gap-4">
+        <button
+          className={`px-6 py-3 rounded font-semibold border ${
+            activeTab === "home"
+              ? "bg-blue-600 text-white border-blue-600"
+              : "border-gray-300 text-gray-700 hover:bg-blue-100"
+          }`}
+          onClick={() => setActiveTab("home")}
+        >
+          Home
+        </button>
+        <button
+          className={`px-6 py-3 rounded font-semibold border ${
+            activeTab === "services"
+              ? "bg-blue-600 text-white border-blue-600"
+              : "border-gray-300 text-gray-700 hover:bg-blue-100"
+          }`}
+          onClick={() => setActiveTab("services")}
+        >
+          Services
+        </button>
+      </section>
 
-  onMouseEnter={(e) => {
-    e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.3)";
-    e.currentTarget.style.transform = "scale(1.05)";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.2)";
-    e.currentTarget.style.transform = "scale(1)";
-  }}
-/>
+      <section className="max-w-7xl mx-auto mt-6 px-6 bg-gray-50 rounded-lg p-6 min-h-[120px]">
+        {!activeTab && (
+          <p className="text-gray-600 text-center">Please select a tab above.</p>
+        )}
 
-            <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-semibold shadow">
-              Effective September 01, 2026
-            </div>
+        {activeTab === "home" && (
+          <div>
+            <h2 className="text-2xl font-bold mb-4 text-blue-700">
+              Health Care Services
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              {healthCareServices.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
           </div>
-        </div>
+        )}
+
+        {activeTab === "services" && (
+          <div>
+            <h2 className="text-2xl font-bold mb-4 text-blue-700">
+              Hospital Names
+            </h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              {hospitalNames.map((hospital) => (
+                <li key={hospital}>{hospital}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </section>
+
+     
+      <div className="bg-blue-200 rounded-xl max-w-7xl mx-auto mt-10 h-64 flex justify-center items-center">
+        <FaEye className="text-blue-600 text-9xl" />
       </div>
     </div>
   );
