@@ -1,89 +1,62 @@
+"use client";
 import React from "react";
+import { FaUserMd, FaHospital, FaHeartbeat } from "react-icons/fa";
 
-export default function FeaturesList() {
+export default function HospitalOverview() {
   const features = [
     {
-      icon: (
-        <svg
-          className="w-6 h-6 text-blue-600"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M9 12l2 2 4-4M7 20h10a2 2 0 002-2v-6a2 2 0 00-2-2H7a2 2 0 00-2 2v6a2 2 0 002 2z"
-          />
-        </svg>
-      ),
-      title: "Award Winning",
+      icon: <FaUserMd className="text-blue-600 text-4xl" />,
+      title: "Expert Doctors",
       description:
-        "Recognized for excellence in ophthalmology services and patient care.",
+        "Our hospital is staffed with highly qualified and experienced doctors dedicated to providing the best medical care.",
     },
     {
-      icon: (
-        <svg
-          className="w-6 h-6 text-blue-600"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 3.13a4 4 0 11-8 0 4 4 0 018 0z"
-          />
-        </svg>
-      ),
-      title: "Expert Team",
+      icon: <FaHospital className="text-blue-600 text-4xl" />,
+      title: "Advanced Facilities",
       description:
-        "Highly qualified ophthalmologists with international training and experience.",
+        "We offer state-of-the-art medical equipment and modern infrastructure to ensure accurate diagnosis and treatment.",
     },
     {
-      icon: (
-        <svg
-          className="w-6 h-6 text-blue-600"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-          />
-        </svg>
-      ),
-      title: "Advanced Technology",
+      icon: <FaHeartbeat className="text-blue-600 text-4xl" />,
+      title: "Patient-Centered Care",
       description:
-        "Latest diagnostic and surgical equipment for precise treatment.",
+        "We focus on compassionate care, ensuring every patient receives personalized attention and comfort.",
     },
   ];
 
   return (
-    <div className="max-w-3xl mx-auto p-4 space-y-6">
-      {features.map((feature, idx) => (
-        <div
-          key={idx}
-          className="flex items-start gap-4 bg-blue-50 rounded-lg p-4"
-        >
-          <div className="flex-shrink-0">{feature.icon}</div>
-          <div>
-            <h3 className="font-bold text-gray-900 text-lg">{feature.title}</h3>
-            <p className="text-gray-600 mt-1">{feature.description}</p>
-          </div>
+    <section className="bg-gray-50 py-20">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Hospital Overview
+          </h2>
+          <p className="text-gray-600 text-lg">
+            Delivering world-class healthcare services with compassion,
+            innovation, and excellence.
+          </p>
         </div>
-      ))}
-    </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white p-8 rounded-xl shadow hover:shadow-lg transition"
+            >
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-6 mx-auto">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold text-center mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 text-center">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
